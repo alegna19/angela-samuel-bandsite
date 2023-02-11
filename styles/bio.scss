@@ -258,6 +258,7 @@
   &__image {
     padding: 1rem 0 0;
     width: 100%;
+    filter: grayscale(100%);
 
     @include tablet {
       width: 33%;
@@ -266,6 +267,12 @@
 
     &:last-child {
       padding-bottom: 2.5rem;
+    }
+  }
+
+  &__image-effect {
+    &:hover {
+      filter: grayscale(0);
     }
   }
 }
