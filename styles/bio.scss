@@ -79,7 +79,7 @@
 
       &__link {
         text-decoration: none;
-        color: $brand-secundary;
+        color: $brand-secundary-text;
       }
 
       &--active {
@@ -163,7 +163,7 @@
 
 .description {
   @include flex(left, column, null);
-  padding: 1.6rem 0;
+  padding: 1.6rem 0 1rem;
   margin: 0rem;
 
   &__title {
@@ -244,7 +244,6 @@
     @include flex(center, column, null);
     font-size: 1.5rem;
     font-weight: normal;
-    text-align: justify;
     margin: 2rem 0;
     line-height: 1.6rem;
 
@@ -265,6 +264,10 @@
   }
 }
 
+.section {
+  background-color: $brand-secundary;
+}
+
 .gallery {
   @include flex(center, column, null);
 
@@ -274,16 +277,17 @@
   }
 
   &__title {
-    font-size: 2.6rem;
+    font-size: 3.5rem;
     font-weight: 600;
-    margin-top: 0;
+    margin: 0;
+    padding: 5.3rem 1rem 3.5rem;
   }
 
   &__image {
-    padding: 1rem 0 0;
+    padding: 2.3rem 0 0;
     width: 100%;
     filter: grayscale(100%);
-    transition: filter 2s ease;
+    transition: filter 1s ease;
 
     &:hover {
       filter: grayscale(0);
@@ -326,7 +330,7 @@
   &__social {
     @include tablet {
       @include flex(center, row, null);
-      width: 91%;
+      width: 94.2%;
       margin-top: -2.9rem;
     }
 
@@ -351,13 +355,9 @@
 
     @include tablet {
       display: flex;
+      justify-content: flex-end;
       order: -1;
-      padding-left: 58rem;
       margin-top: 5rem;
-    }
-
-    @include desktop {
-      padding-left: 81rem;
     }
   }
 
@@ -398,11 +398,17 @@
       color: white;
       font-size: 1.2rem;
       margin: 0.3rem;
+      font-weight: 600;
 
       @include tablet {
         padding: 0;
         font-size: 1.4rem;
       }
+    }
+
+    &__subtitle-location {
+      @extend .block__subtitle;
+      font-weight: 400;
     }
 
     &__email {
