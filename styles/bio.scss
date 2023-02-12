@@ -3,32 +3,42 @@
 @use "./partials/typography";
 
 .wrapper {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
 
   @include tablet {
-    padding-left: 3.8rem;
-    padding-right: 3.8rem;
+    padding-left: 36px;
+    padding-right: 36px;
   }
 
   @include desktop {
     max-width: $wrapper-max-width;
     margin: auto;
+    width: 100%;
     padding-left: 48px;
     padding-right: 48px;
   }
+
+  .hero & {
+    height: 100%;
+  }
+}
+
+.header {
+  background-color: $brand-primary;
 }
 
 .nav {
   @include flex(null, column, center);
-  background-color: $brand-primary;
   font-size: 1.5rem;
   font-weight: 400;
+  margin: 0 -16px;
 
   @include tablet {
     @include flex(null, row, baseline);
     align-self: flex-start;
-    padding: 0 2.3rem;
+    padding: 0;
+    margin: 0;
   }
 
   &__logo {
@@ -134,11 +144,6 @@
     height: 100%;
   }
 
-  &__wrapper {
-    height: 100%;
-    display: flex;
-  }
-
   @include tablet {
     @include flex(null, row, nul);
     height: 50vh;
@@ -149,9 +154,11 @@
     @include flex(left, null, center);
     font-size: 3rem;
     font-weight: 600;
-    padding-left: 1.5rem;
+    padding: 0;
     position: relative;
     z-index: 2;
+    height: 100%;
+    margin: 0;
 
     @include tablet {
       @include flex(null, row, nul);
@@ -172,11 +179,12 @@
     margin: 0;
 
     @include tablet {
-      padding: 2rem 1rem;
+      padding: 2rem 0;
     }
 
     @include desktop {
       text-align: left;
+      padding: 1.6rem 0;
     }
   }
 
@@ -186,12 +194,25 @@
 
     @include tablet {
       margin: 0 auto;
+      padding: 1rem 5rem;
+    }
+
+    @include desktop {
+      padding: 1rem 7rem;
     }
   }
 }
 
 .about {
   margin: 0 1rem;
+
+  @include tablet {
+    padding: 0 5rem;
+  }
+
+  @include desktop {
+    padding: 0 7rem;
+  }
 
   &__quote {
     padding: 0rem;
@@ -202,14 +223,13 @@
     @include tablet {
       margin: 0;
       text-align: left;
-      padding-right: 18rem;
-      font-size: 1.5rem;
+      padding-right: 7rem;
+      font-size: 1.9rem;
+      font-weight: 600;
     }
 
     @include desktop {
-      max-width: $wrapper-max-width;
-      margin: auto;
-      justify-content: space-between;
+      padding-right: 46rem;
     }
   }
 
@@ -221,6 +241,9 @@
     @include tablet {
       padding-right: 13rem;
       margin: 0;
+      padding-top: 1.5rem;
+      font-weight: 600;
+      font-size: 1.4rem;
     }
 
     @include desktop {
@@ -237,6 +260,7 @@
     @include tablet {
       padding-top: 1rem;
       margin-bottom: 0rem;
+      font-size: 2rem;
     }
   }
 
@@ -245,11 +269,13 @@
     font-size: 1.5rem;
     font-weight: normal;
     margin: 2rem 0;
-    line-height: 1.6rem;
+    line-height: 2.2rem;
 
     .about__content {
       @include tablet {
         margin-top: 0;
+        font-weight: 400;
+        font-size: 1.4rem;
 
         &:first-child {
           padding-right: 2rem;
@@ -280,11 +306,19 @@
     font-size: 3.5rem;
     font-weight: 600;
     margin: 0;
-    padding: 5.3rem 1rem 3.5rem;
+    padding: 1.5rem 0 0;
+
+    @include tablet {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    @include desktop {
+      padding: 3rem 0 1.5rem;
+    }
   }
 
   &__image {
-    padding: 2.3rem 0 0;
+    padding: 2rem 0 0;
     width: 100%;
     filter: grayscale(100%);
     transition: filter 1s ease;
@@ -310,6 +344,7 @@
 
 .contact {
   @include flex(left, column, null);
+  padding: 1rem 0;
 
   @include tablet {
   }
@@ -330,12 +365,12 @@
   &__social {
     @include tablet {
       @include flex(center, row, null);
-      width: 94.2%;
+      width: 92%;
       margin-top: -2.9rem;
     }
 
     @include desktop {
-      width: 74%;
+      width: 57%;
     }
   }
 
