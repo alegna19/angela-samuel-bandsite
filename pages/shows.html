@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/resets.css">
     <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/shows.css">
     <title>Shows</title>
 </head>
 
@@ -19,14 +20,27 @@
                                 alt="Logo"></a>
                 </ul>
                 <ul class="nav__list">
-                    <li class="nav__list__item nav__list__item--active">
-                        <a class="nav__list__item__link" href="#">Biography</a>
+                    <li class="nav__list__item">
+                        <a class="nav__list__item__link" href="/index.html">Biography</a>
                     </li>
-                    <li class="nav__list__item"> <a class="nav__list__item__link" href="#">Shows</a> </li>
+                    <li class="nav__list__item nav__list__item--active"> <a class="nav__list__item__link"
+                            href="#">Shows</a> </li>
                 </ul>
             </nav>
         </div>
     </header>
+    <section class="hero">
+        <div class="wrapper">
+            <h1 class="hero__title">Beautiful Beasts Album</h1>
+            <h2 class="hero__subtitle">Queen of Yellow X For The Stings</h2>
+            <iframe class="hero__music" scrolling="no" frameborder="no"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/41395010&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+        </div>
+    </section>
+    <section class="section">
+        <div class="wrapper-shows"></div>
+
+    </section>
 
     <footer class="footer">
         <div class="wrapper">
@@ -91,7 +105,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="/scripts/build-shows-page.js"></script>
 </body>
 
 </html>
