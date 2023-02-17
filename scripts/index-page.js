@@ -21,12 +21,7 @@ let defaultComments = [
   },
 ];
 
-/**
- * Loop that iterates and adds the comments to the form,
- * and display the comments by default when the page is loading.
- */
-
-defaultComments.forEach((item) => {
+let displayComment = (comment) => {
   const articleComments = document.createElement("article");
   articleComments.classList.add("comments__info");
   commentsList.appendChild(articleComments);
@@ -38,72 +33,45 @@ defaultComments.forEach((item) => {
 
   const nameDefaultComment = document.createElement("p");
   nameDefaultComment.classList.add("comments__name");
-  nameDefaultComment.innerText = item.name;
+  nameDefaultComment.innerText = comment.name;
   articleComments.appendChild(nameDefaultComment);
 
   const dateDefaultComment = document.createElement("p");
   dateDefaultComment.classList.add("comments__date");
-  dateDefaultComment.innerText = item.date;
+  dateDefaultComment.innerText = comment.date;
   articleComments.appendChild(dateDefaultComment);
 
   const commentDefault = document.createElement("p");
   commentDefault.classList.add("comments__content");
-  commentDefault.innerText = item.commentText;
+  commentDefault.innerText = comment.commentText;
   articleComments.appendChild(commentDefault);
-});
+};
 
-/**
- * Method that add a new article to the form in the comments section.
- */
+const showDefaults = () => {
+  defaultComments.forEach((comment) => {
+    displayComment(comment);
+  });
+};
 
-const form = document.querySelector(".form");
+showDefaults();
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+const showNewComments = () => {
+  const form = document.querySelector(".form");
 
-  const articleComments = document.createElement("article");
-  articleComments.classList.add("comments__info");
-  commentsList.prepend(articleComments);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  const imageComment = document.createElement("img");
-  imageComment.classList.add("comments__image");
-  imageComment.src = "../assets/Images/vinyl.png";
-  articleComments.appendChild(imageComment);
+    const newComments = {
+      name: e.target.name.value,
+      commentText: e.target.comment.value,
+      date: new Date().toLocaleDateString(),
+    };
 
-  const nameValue = e.target.name.value;
-  const commentValue = e.target.comment.value;
+    defaultComments.unshift(newComments);
+    commentsList.innerHTML = "";
+    showDefaults();
+    form.reset();
+  });
+};
 
-  const nameNewName = document.createElement("p");
-  nameNewName.classList.add("comments__name");
-  nameNewName.innerText = nameValue;
-  articleComments.appendChild(nameNewName);
-
-  const dateDefaultComment = document.createElement("p");
-  dateDefaultComment.classList.add("comments__date");
-  dateDefaultComment.innerText = new Date().toLocaleDateString();
-  articleComments.appendChild(dateDefaultComment);
-
-  const nameNewComment = document.createElement("p");
-  nameNewComment.classList.add("comments__content");
-  nameNewComment.innerText = commentValue;
-  articleComments.appendChild(nameNewComment);
-
-  e.target.name.value = " ";
-  e.target.comment.value = " ";
-});
-
-// let displayComment = (comment) => {
-//   const articleComments = document.createElement("article");
-//   articleComments.classList.add("comments__info");
-//   commentsList.prepend(articleComments);
-
-//   const imageComment = document.createElement("img");
-//   imageComment.classList.add("comments__image");
-//   imageComment.src = "../assets/Images/vinyl.png";
-//   articleComments.appendChild(imageComment);
-
-//   const dateDefaultComment = document.createElement("p");
-//   dateDefaultComment.classList.add("comments__date");
-//   dateDefaultComment.innerText = new Date().toLocaleDateString();
-//   articleComments.appendChild(dateDefaultComment);
-// };
+showNewComments();

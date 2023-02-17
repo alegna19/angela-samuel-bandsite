@@ -419,6 +419,9 @@ a {
   font-weight: 600;
   font-size: 1.8rem;
 }
+.shows__article-hover {
+  background-color: teal;
+}
 .shows__article--active {
   background-color: #afafaf;
 }/*# sourceMappingURL=shows.css.map */

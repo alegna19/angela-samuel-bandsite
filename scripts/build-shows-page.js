@@ -96,7 +96,14 @@ articleElements.forEach((item) => {
     if (activeValue) {
       activeValue.classList.remove("shows__article--active");
     }
-
     e.currentTarget.classList.toggle("shows__article--active");
   });
 });
+
+// item.addEventListener("mouseover", (event) => {
+//   event.currentTarget.classList.add("shows__article-hover");
+// });
+
+// item.addEventListener("mouseover", (event) => {
+//   event.currentTarget.classList.remove("shows__article-hover");
+// });

@@ -105,6 +105,9 @@
     font-weight: 600;
     font-size: 1.8rem;
   }
+  &__article-hover {
+    background-color: teal;
+  }
 
   &__article--active {
     background-color: $brand-secundary-text;
