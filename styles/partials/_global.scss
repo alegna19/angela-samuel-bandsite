@@ -1,6 +1,6 @@
-@use "./partials/mixins" as *;
-@use "./partials/variables" as *;
-@use "./partials/typography";
+@use "./mixins" as *;
+@use "./variables" as *;
+@use "./typography";
 
 .wrapper {
   padding-left: 16px;
@@ -259,4 +259,23 @@
       font-size: 1.3rem;
     }
   }
+}
+
+.shows__button {
+  background-color: $brand-primary;
+  color: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 2rem 0;
+  padding: 1rem 7.6rem;
+  text-align: center;
+}
+
+.form__button {
+  @extend .shows__button;
+  font-size: 1.5rem;
+  width: 80%;
+  height: 4rem;
 }

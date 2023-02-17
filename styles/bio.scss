@@ -1,5 +1,7 @@
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
+@use "./partials/resets" as *;
+@use "./partials/global" as *;
 @use "./partials/typography";
 
 .hero {
@@ -211,6 +213,69 @@
 
     &:last-child {
       padding-bottom: 2.5rem;
+    }
+  }
+}
+
+.form {
+  @include flex(center, column, null);
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  &__label {
+    color: $brand-secundary-text;
+    font-size: 1rem;
+    padding: 1.5rem 0;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  &__name {
+    background-color: $brand-secundary;
+    width: 64%;
+    height: 4rem;
+    border-radius: 4.4px;
+    border: 0.5px solid #d5cfcf;
+  }
+
+  &__comment {
+    @extend .form__name;
+    height: 10rem;
+    width: 23rem;
+  }
+
+  .comments {
+    @include flex(center, column, center);
+    padding-bottom: 3rem;
+
+    &__info {
+      @include flex(space-between, row, null);
+      flex-wrap: wrap;
+    }
+
+    &__name {
+      text-align: left;
+      padding-right: 5rem;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+
+    &__content {
+      padding-left: 5.4rem;
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    &__date {
+      color: $brand-secundary-text;
+      font-size: 1.3rem;
+    }
+
+    &__image {
+      width: 4.5rem;
     }
   }
 }

@@ -91,9 +91,12 @@ const articleElements = document.querySelectorAll(".shows__article");
 
 articleElements.forEach((item) => {
   item.addEventListener("click", (e) => {
-    articleElements.forEach((item) => {
-      item.classList.remove("shows__article--active");
-    });
+    const activeValue = document.querySelector(".shows__article--active");
+
+    if (activeValue) {
+      activeValue.classList.remove("shows__article--active");
+    }
+
     e.currentTarget.classList.toggle("shows__article--active");
   });
 });
