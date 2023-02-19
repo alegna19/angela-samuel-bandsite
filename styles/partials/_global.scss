@@ -3,20 +3,20 @@
 @use "./typography";
 
 .wrapper {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 
   @include tablet {
-    padding-left: 36px;
-    padding-right: 36px;
+    padding-left: 3.6rem;
+    padding-right: 3.6rem;
   }
 
   @include desktop {
     max-width: $wrapper-max-width;
     margin: auto;
     width: 100%;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 4.8rem;
+    padding-right: 4.8rem;
   }
 
   .hero & {
@@ -266,16 +266,33 @@
   color: white;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  margin: 2rem 0;
+  margin: 1.7rem 0 2rem;
   padding: 1rem 7.6rem;
   text-align: center;
+  width: 100%;
+
+  @include tablet {
+    width: auto;
+    flex-grow: 0;
+    padding: 1rem;
+    margin-left: auto;
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+  }
 }
 
 .form__button {
   @extend .shows__button;
   font-size: 1.5rem;
-  width: 80%;
+  width: 82%;
   height: 4rem;
+  display: flex;
+
+  @include tablet {
+    align-items: flex-end;
+    width: 24%;
+    justify-content: center;
+  }
 }

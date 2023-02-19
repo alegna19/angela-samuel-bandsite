@@ -75,3 +75,5 @@ const showNewComments = () => {
 };
 
 showNewComments();
+
+let datePosted = (date) => {};

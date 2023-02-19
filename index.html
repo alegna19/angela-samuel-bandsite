@@ -144,23 +144,34 @@
         <div class="wrapper">
           <form class="form">
             <h3 class="form__title">Join the Conversation</h3>
-            <label class="form__label" for="name">NAME</label>
-            <input
-              class="form__name"
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-            />
-            <label class="form__label" for="comment">COMMENT</label>
-            <input
-              class="form__comment"
-              type="text"
-              name="comment"
-              placeholder="Add a new comment"
-            />
-            <button id="submitBtn" class="form__button" type="submit">
-              COMMENT
-            </button>
+            <div class="form__info">
+              <img
+                class="form__image"
+                src="./assets/Images/Mohan-muruge.jpg"
+                alt="comments image"
+              />
+              <div class="form__input">
+                <label class="form__label" for="name">NAME</label>
+                <input
+                  class="form__name"
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                />
+                <label class="form__label" for="comment">COMMENT</label>
+                <textarea
+                  class="form__comment"
+                  type="text"
+                  name="comment"
+                  placeholder="Add a new comment"
+                ></textarea>
+              </div>
+            </div>
+            <div class="form__btn">
+              <button id="submitBtn" class="form__button" type="submit">
+                COMMENT
+              </button>
+            </div>
             <div class="comments"></div>
           </form>
         </div>

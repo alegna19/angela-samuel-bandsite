@@ -1,15 +1,34 @@
-const sectionShows = document.querySelector(".wrapper-shows");
+const sectionShows = document.querySelector("#wrapper-shows");
 
 let heatherShows = document.createElement("h2");
 heatherShows.classList.add("shows__title");
 sectionShows.appendChild(heatherShows);
 heatherShows.innerText = "Shows";
 
+let titles = document.createElement("div");
+titles.classList.add("titles");
+sectionShows.appendChild(titles);
+
+let titlesDate = document.createElement("p");
+titlesDate.classList.add("titles__name");
+titles.appendChild(titlesDate);
+titlesDate.innerText = "DATE";
+
+let titlesVenue = document.createElement("p");
+titlesVenue.classList.add("titles__name");
+titles.appendChild(titlesVenue);
+titlesVenue.innerText = "VENUE";
+
+let titlesLocation = document.createElement("p");
+titlesLocation.classList.add("titles__name");
+titles.appendChild(titlesLocation);
+titlesLocation.innerText = "LOCATION";
+
 const titleShows = document.querySelector(".shows__title");
 
 let containerShows = document.createElement("div");
 containerShows.classList.add("shows__description");
-titleShows.appendChild(containerShows);
+sectionShows.appendChild(containerShows);
 
 let showsDescription = document.querySelector(".shows__description");
 
@@ -67,7 +86,7 @@ showsInfo.forEach((item) => {
   article.appendChild(venueTitle);
 
   const venueValue = document.createElement("p");
-  venueValue.classList.add("shows__date");
+  venueValue.classList.add("shows__details");
   article.appendChild(venueValue);
   venueValue.innerText = item.venue;
 
@@ -77,7 +96,7 @@ showsInfo.forEach((item) => {
   article.appendChild(locationTitle);
 
   const locationValue = document.createElement("p");
-  locationValue.classList.add("shows__date");
+  locationValue.classList.add("shows__details");
   article.appendChild(locationValue);
   locationValue.innerText = item.location;
 
@@ -99,11 +118,3 @@ articleElements.forEach((item) => {
     e.currentTarget.classList.toggle("shows__article--active");
   });
 });
-
-// item.addEventListener("mouseover", (event) => {
-//   event.currentTarget.classList.add("shows__article-hover");
-// });
-
-// item.addEventListener("mouseover", (event) => {
-//   event.currentTarget.classList.remove("shows__article-hover");
-// });

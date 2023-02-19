@@ -4,31 +4,14 @@
 @use "./partials/global" as *;
 @use "./partials/typography";
 
-.wrapper-shows {
-  padding-left: 16px;
-  padding-right: 16px;
-
-  @include tablet {
-    padding-left: 36px;
-    padding-right: 36px;
-  }
-
-  @include desktop {
-    max-width: $wrapper-max-width;
-    margin: auto;
-    width: 100%;
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
-
 .hero {
   background-image: url(../assets/Images/hero-shows.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 35vh;
   position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
   &::after {
     opacity: 0.5;
@@ -43,7 +26,6 @@
 
   @include tablet {
     @include flex(null, row, nul);
-    height: 50vh;
   }
 
   &__title {
@@ -55,32 +37,62 @@
     position: relative;
     z-index: 2;
     height: 28%;
-    margin: 0;
+    margin-bottom: 2rem;
 
     @include tablet {
-      @include flex(null, row, nul);
-      font-size: 3.75rem;
+      @include flex(null, row, null);
+      font-size: 2.5rem;
       font-weight: 600;
     }
   }
 
   &__subtitle {
     color: white;
-    @include flex(left, null, center);
+    @include flex(left, null, null);
     font-size: 2.7rem;
     font-weight: 600;
-    padding: 0;
+    padding-right: 2rem;
     position: relative;
     z-index: 2;
     height: 40%;
-    margin: 0;
+    margin-bottom: 3rem;
+
+    @include tablet {
+      @include flex(null, row, null);
+      font-size: 6rem;
+      font-weight: 600;
+      padding-right: 9rem;
+    }
   }
 
   &__music {
-    width: 80%;
-    height: 27%;
+    width: 100%;
+    height: 10rem;
     z-index: 2;
     position: relative;
+
+    @include tablet {
+      width: 56%;
+      height: 20%;
+      z-index: 2;
+    }
+  }
+}
+
+.titles {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    width: 100%;
+  }
+
+  &__name {
+    width: 25%;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: $brand-secundary-text;
+    margin: 2.4rem 0 0.5rem;
   }
 }
 
@@ -88,28 +100,69 @@
   @include flex(flex-start, column, null);
   &__title {
     font-size: 3rem;
-    padding: 2.5rem 0 0;
+    font-weight: 600;
+    padding: 4.5rem 0 1rem;
+    margin: 0;
   }
   &__description {
     font-weight: 400;
     font-size: 2rem;
+    padding: 2.5rem 0 1rem;
+    margin: 0;
+
+    @include tablet {
+      padding: 0;
+      :hover {
+        background-color: $brand-secundary;
+      }
+    }
   }
+
+  &__article {
+    border-bottom: 1px solid $bran-color-mercury;
+
+    @include tablet {
+      @include flex(flex-start, null, center);
+    }
+  }
+
   &__subtitle {
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.3rem;
     color: $brand-secundary-text;
+    padding: 1rem 0;
+    margin: 0;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__details {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 0.8rem;
+
+    @include tablet {
+      width: 25%;
+    }
   }
 
   &__date {
     margin: 0;
     font-weight: 600;
-    font-size: 1.8rem;
-  }
-  &__article-hover {
-    background-color: teal;
+    font-size: 1.6rem;
+    padding-bottom: 0.6rem;
+
+    @include tablet {
+      width: 25%;
+    }
   }
 
   &__article--active {
-    background-color: $brand-secundary-text;
+    background-color: $bran-color-mercury;
+    font-weight: bold;
+    color: $brand-primary;
   }
 }
