@@ -67,13 +67,16 @@ const showNewComments = () => {
       date: new Date().toLocaleDateString(),
     };
 
-    defaultComments.unshift(newComments);
-    commentsList.innerHTML = "";
-    showDefaults();
-    form.reset();
+    if (e.target.name.value === "" || e.target.name.value == null) {
+      const nameError = document.querySelector(".form__error");
+      nameError.innerText = "Please Enter a Name";
+    } else {
+      defaultComments.unshift(newComments);
+      commentsList.innerHTML = "";
+      showDefaults();
+      form.reset();
+    }
   });
 };
 
 showNewComments();
-
-let datePosted = (date) => {};

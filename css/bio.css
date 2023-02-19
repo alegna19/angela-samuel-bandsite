@@ -306,10 +306,15 @@ a {
   .shows__button, .form__button {
     width: auto;
     flex-grow: 0;
-    padding: 1rem;
     margin-left: auto;
     padding: 1rem 2.5rem;
     font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shows__button, .form__button {
+    padding: 1rem 1.5rem;
+    width: 21%;
   }
 }
 
@@ -576,6 +581,16 @@ a {
     font-size: 3.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .form__title {
+    padding-left: 1rem;
+  }
+}
+.form__error {
+  color: red;
+  display: flex;
+  justify-content: flex-start;
+}
 .form__info {
   display: flex;
 }
@@ -606,10 +621,17 @@ a {
   border: 1px solid #e1e1e1;
   padding: 0.8rem;
   margin: 1rem 0;
+  font-family: Avenir;
 }
 @media screen and (min-width: 768px) {
   .form__name, .form__comment {
-    width: 57rem;
+    width: 50rem;
+    height: 4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form__name, .form__comment {
+    width: 47rem;
     height: 4rem;
   }
 }
@@ -636,16 +658,23 @@ a {
     width: 95.5%;
   }
 }
+@media screen and (min-width: 1280px) {
+  .form__btn {
+    justify-content: center;
+    width: 72.5%;
+  }
+}
 .form__comment {
   height: 10rem;
   resize: none;
+  font-family: Avenir;
 }
 .form .comments {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 3rem;
+  padding: 1.5rem 0 4rem;
 }
 .form .comments__info {
   display: flex;
@@ -654,6 +683,17 @@ a {
   flex-wrap: wrap;
   border-top: 1px solid #e1e1e1;
   padding: 1.6rem 0;
+}
+.form .comments__info:last-child {
+  border-bottom: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 1280px) {
+  .form .comments__info {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 33rem;
+  }
 }
 .form .comments__name {
   text-align: left;

@@ -1,13 +1,17 @@
 const sectionShows = document.querySelector("#wrapper-shows");
 
+let dividerShows = document.createElement("div");
+dividerShows.classList.add("container");
+sectionShows.appendChild(dividerShows);
+
 let heatherShows = document.createElement("h2");
 heatherShows.classList.add("shows__title");
-sectionShows.appendChild(heatherShows);
+dividerShows.appendChild(heatherShows);
 heatherShows.innerText = "Shows";
 
 let titles = document.createElement("div");
 titles.classList.add("titles");
-sectionShows.appendChild(titles);
+dividerShows.appendChild(titles);
 
 let titlesDate = document.createElement("p");
 titlesDate.classList.add("titles__name");

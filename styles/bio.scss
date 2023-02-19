@@ -227,7 +227,18 @@
     @include tablet {
       font-size: 3.5rem;
     }
+
+    @include desktop {
+      padding-left: 1rem;
+    }
   }
+
+  &__error {
+    color: red;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   &__info {
     display: flex;
 
@@ -260,9 +271,15 @@
     border: 1px solid $bran-color-mercury;
     padding: 0.8rem;
     margin: 1rem 0;
+    font-family: Avenir;
 
     @include tablet {
-      width: 57rem;
+      width: 50rem;
+      height: 4rem;
+    }
+
+    @include desktop {
+      width: 47rem;
       height: 4rem;
     }
   }
@@ -288,23 +305,38 @@
       justify-content: flex-end;
       width: 95.5%;
     }
+
+    @include desktop {
+      justify-content: center;
+      width: 72.5%;
+    }
   }
 
   &__comment {
     @extend .form__name;
     height: 10rem;
     resize: none;
+    font-family: Avenir;
   }
 
   .comments {
     @include flex(center, column, center);
-    padding-bottom: 3rem;
+    padding: 1.5rem 0 4rem;
 
     &__info {
       @include flex(flex-start, row, null);
       flex-wrap: wrap;
       border-top: 1px solid $bran-color-mercury;
       padding: 1.6rem 0;
+
+      &:last-child {
+        border-bottom: 1px solid $bran-color-mercury;
+      }
+
+      @include desktop {
+        @include flex(center, row, null);
+        margin: 0 33rem;
+      }
     }
 
     &__name {

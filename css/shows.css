@@ -306,10 +306,15 @@ a {
   .shows__button, .form__button {
     width: auto;
     flex-grow: 0;
-    padding: 1rem;
     margin-left: auto;
     padding: 1rem 2.5rem;
     font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shows__button, .form__button {
+    padding: 1rem 1.5rem;
+    width: 21%;
   }
 }
 
@@ -353,6 +358,14 @@ a {
     align-items: nul;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: nul;
+  }
+}
 .hero__title {
   color: white;
   display: flex;
@@ -372,6 +385,14 @@ a {
     flex-direction: row;
     font-size: 2.5rem;
     font-weight: 600;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__baner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 }
 .hero__subtitle {
@@ -395,6 +416,15 @@ a {
     padding-right: 9rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__subtitle {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-weight: 600;
+    align-items: center;
+  }
+}
 .hero__music {
   width: 100%;
   height: 10rem;
@@ -409,6 +439,13 @@ a {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
 .titles {
   display: none;
 }
@@ -418,8 +455,18 @@ a {
     width: 100%;
   }
 }
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .titles {
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1280px) {
+  .titles {
+    margin-left: 15rem;
+  }
+}
 .titles__name {
-  width: 25%;
+  width: 28%;
   font-weight: 600;
   font-size: 1.3rem;
   color: #afafaf;
@@ -437,6 +484,15 @@ a {
   padding: 4.5rem 0 1rem;
   margin: 0;
 }
+@media screen and (min-width: 1280px) {
+  .shows__title {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size: 3.4rem;
+    margin-left: 7rem;
+  }
+}
 .shows__description {
   font-weight: 400;
   font-size: 2rem;
@@ -449,6 +505,12 @@ a {
   }
   .shows__description :hover {
     background-color: #fafafa;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__description {
+    margin: 0 10rem;
+    padding-left: 22rem;
   }
 }
 .shows__article {
@@ -484,6 +546,11 @@ a {
     width: 25%;
   }
 }
+@media screen and (min-width: 768px) {
+  .shows__details {
+    width: 23%;
+  }
+}
 .shows__date {
   margin: 0;
   font-weight: 600;
@@ -493,6 +560,12 @@ a {
 @media screen and (min-width: 768px) {
   .shows__date {
     width: 25%;
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__date {
+    width: 33%;
   }
 }
 .shows__article--active {
