@@ -341,6 +341,12 @@ a {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.hero .wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .hero::after {
   opacity: 0.5;
   background-color: #323232;
@@ -364,6 +370,7 @@ a {
     justify-content: center;
     flex-direction: row;
     align-items: nul;
+    height: 60vh;
   }
 }
 .hero__title {
@@ -385,6 +392,8 @@ a {
     flex-direction: row;
     font-size: 2.5rem;
     font-weight: 600;
+    height: auto;
+    margin-bottom: 1rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -414,6 +423,8 @@ a {
     font-size: 6rem;
     font-weight: 600;
     padding-right: 9rem;
+    padding-bottom: 3rem;
+    margin: 1rem 0rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -423,6 +434,7 @@ a {
     flex-direction: row;
     font-weight: 600;
     align-items: center;
+    padding-right: 12rem;
   }
 }
 .hero__music {
@@ -433,9 +445,17 @@ a {
 }
 @media screen and (min-width: 768px) {
   .hero__music {
-    width: 56%;
-    height: 20%;
+    width: 50%;
+    height: 10rem;
     z-index: 2;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__music {
+    height: 12rem;
+    width: 40%;
+    flex-shrink: 0;
+    padding-right: 11rem;
   }
 }
 
@@ -453,24 +473,33 @@ a {
   .titles {
     display: flex;
     width: 100%;
-  }
-}
-@media screen and (min-width: 768px) and (min-width: 768px) {
-  .titles {
     justify-content: flex-start;
+    padding: 0 2rem;
   }
 }
 @media screen and (min-width: 768px) and (min-width: 1280px) {
   .titles {
     margin-left: 15rem;
+    padding-right: 10%;
   }
 }
-.titles__name {
-  width: 28%;
+.titles__date, .titles__location, .titles__venue {
+  width: 25%;
   font-weight: 600;
   font-size: 1.3rem;
   color: #afafaf;
   margin: 2.4rem 0 0.5rem;
+}
+@media screen and (min-width: 1280px) {
+  .titles__date, .titles__location, .titles__venue {
+    width: 33%;
+  }
+}
+.titles__venue {
+  width: 23%;
+}
+.titles__location {
+  width: 23%;
 }
 
 .shows {
@@ -503,9 +532,6 @@ a {
   .shows__description {
     padding: 0;
   }
-  .shows__description :hover {
-    background-color: #fafafa;
-  }
 }
 @media screen and (min-width: 1280px) {
   .shows__description {
@@ -521,11 +547,16 @@ a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
+    padding: 0 2rem;
+  }
+  .shows__article:hover {
+    background-color: #fafafa;
   }
 }
 .shows__subtitle {
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #afafaf;
   padding: 1rem 0;
   margin: 0;
@@ -572,4 +603,7 @@ a {
   background-color: #e1e1e1;
   font-weight: bold;
   color: #323232;
+}
+.shows__article--active:hover {
+  background-color: #e1e1e1;
 }/*# sourceMappingURL=shows.css.map */

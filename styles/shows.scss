@@ -13,6 +13,10 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 
+  .wrapper {
+    @include flex(center, column, flex-start);
+  }
+
   &::after {
     opacity: 0.5;
     background-color: $brand-primary;
@@ -30,6 +34,7 @@
 
   @include desktop {
     @include flex(center, row, nul);
+    height: 60vh;
   }
 
   &__title {
@@ -47,6 +52,8 @@
       @include flex(null, row, null);
       font-size: 2.5rem;
       font-weight: 600;
+      height: auto;
+      margin-bottom: 1rem;
     }
   }
 
@@ -73,12 +80,15 @@
       font-size: 6rem;
       font-weight: 600;
       padding-right: 9rem;
+      padding-bottom: 3rem;
+      margin: 1rem 0rem;
     }
 
     @include desktop {
       @include flex(space-between, row, null);
       font-weight: 600;
       align-items: center;
+      padding-right: 12rem;
     }
   }
 
@@ -89,9 +99,16 @@
     position: relative;
 
     @include tablet {
-      width: 56%;
-      height: 20%;
+      width: 50%;
+      height: 10rem;
       z-index: 2;
+    }
+
+    @include desktop {
+      height: 12rem;
+      width: 40%;
+      flex-shrink: 0;
+      padding-right: 11rem;
     }
   }
 }
@@ -109,22 +126,35 @@
   @include tablet {
     display: flex;
     width: 100%;
-
-    @include tablet {
-      justify-content: flex-start;
-    }
+    justify-content: flex-start;
+    padding: 0 2rem;
 
     @include desktop {
       margin-left: 15rem;
+      padding-right: 10%;
     }
   }
 
-  &__name {
-    width: 28%;
+  &__date {
+    width: 25%;
     font-weight: 600;
     font-size: 1.3rem;
     color: $brand-secundary-text;
     margin: 2.4rem 0 0.5rem;
+
+    @include desktop {
+      width: 33%;
+    }
+  }
+
+  &__venue {
+    @extend .titles__date;
+    width: 23%;
+  }
+
+  &__location {
+    @extend .titles__date;
+    width: 23%;
   }
 }
 
@@ -150,9 +180,6 @@
 
     @include tablet {
       padding: 0;
-      :hover {
-        background-color: $brand-secundary;
-      }
     }
 
     @include desktop {
@@ -166,12 +193,18 @@
 
     @include tablet {
       @include flex(flex-start, null, center);
+      cursor: pointer;
+      padding: 0 2rem;
+
+      &:hover {
+        background-color: $brand-secundary;
+      }
     }
   }
 
   &__subtitle {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: $brand-secundary-text;
     padding: 1rem 0;
     margin: 0;
@@ -216,5 +249,9 @@
     background-color: $bran-color-mercury;
     font-weight: bold;
     color: $brand-primary;
+
+    &:hover {
+      background-color: $bran-color-mercury;
+    }
   }
 }

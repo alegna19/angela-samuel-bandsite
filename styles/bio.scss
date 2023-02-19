@@ -234,9 +234,22 @@
   }
 
   &__error {
-    color: red;
-    display: flex;
-    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: 600;
+    color: tomato;
+    width: 10rem;
+    height: 4rem;
+
+    @include tablet {
+      font-weight: 700;
+      width: 20rem;
+      font-size: 1.5rem;
+    }
+
+    @include desktop {
+      padding-left: 15rem;
+      width: 38rem;
+    }
   }
 
   &__info {
@@ -303,7 +316,7 @@
 
     @include tablet {
       justify-content: flex-end;
-      width: 95.5%;
+      width: 90.5%;
     }
 
     @include desktop {
@@ -317,11 +330,12 @@
     height: 10rem;
     resize: none;
     font-family: Avenir;
+    padding-left: 0.9rem;
   }
 
   .comments {
     @include flex(center, column, center);
-    padding: 1.5rem 0 4rem;
+    padding: 0 0 2.5rem;
 
     &__info {
       @include flex(flex-start, row, null);
@@ -355,9 +369,11 @@
       padding-left: 5.4rem;
       font-size: 1.3rem;
       margin: 0;
+      line-height: 2rem;
 
       @include tablet {
         font-size: 1.5rem;
+        line-height: 2.2rem;
       }
     }
 

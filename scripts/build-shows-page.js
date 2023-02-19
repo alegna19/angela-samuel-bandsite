@@ -14,17 +14,17 @@ titles.classList.add("titles");
 dividerShows.appendChild(titles);
 
 let titlesDate = document.createElement("p");
-titlesDate.classList.add("titles__name");
+titlesDate.classList.add("titles__date");
 titles.appendChild(titlesDate);
 titlesDate.innerText = "DATE";
 
 let titlesVenue = document.createElement("p");
-titlesVenue.classList.add("titles__name");
+titlesVenue.classList.add("titles__venue");
 titles.appendChild(titlesVenue);
 titlesVenue.innerText = "VENUE";
 
 let titlesLocation = document.createElement("p");
-titlesLocation.classList.add("titles__name");
+titlesLocation.classList.add("titles__location");
 titles.appendChild(titlesLocation);
 titlesLocation.innerText = "LOCATION";
 
@@ -69,6 +69,10 @@ let showsInfo = [
   },
 ];
 
+/**
+ * Iterate the array of objects to display it in the Dom.
+ */
+
 showsInfo.forEach((item) => {
   const article = document.createElement("article");
   article.classList.add("shows__article");
@@ -112,6 +116,9 @@ showsInfo.forEach((item) => {
 
 const articleElements = document.querySelectorAll(".shows__article");
 
+/**
+ * Method that recive an event to validate if the row of the article is active.
+ */
 articleElements.forEach((item) => {
   item.addEventListener("click", (e) => {
     const activeValue = document.querySelector(".shows__article--active");

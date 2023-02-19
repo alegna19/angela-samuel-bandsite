@@ -587,9 +587,24 @@ a {
   }
 }
 .form__error {
-  color: red;
-  display: flex;
-  justify-content: flex-start;
+  font-size: 1rem;
+  font-weight: 600;
+  color: tomato;
+  width: 10rem;
+  height: 4rem;
+}
+@media screen and (min-width: 768px) {
+  .form__error {
+    font-weight: 700;
+    width: 20rem;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form__error {
+    padding-left: 15rem;
+    width: 38rem;
+  }
 }
 .form__info {
   display: flex;
@@ -655,7 +670,7 @@ a {
 @media screen and (min-width: 768px) {
   .form__btn {
     justify-content: flex-end;
-    width: 95.5%;
+    width: 90.5%;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -668,13 +683,14 @@ a {
   height: 10rem;
   resize: none;
   font-family: Avenir;
+  padding-left: 0.9rem;
 }
 .form .comments {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 0 4rem;
+  padding: 0 0 2.5rem;
 }
 .form .comments__info {
   display: flex;
@@ -711,10 +727,12 @@ a {
   padding-left: 5.4rem;
   font-size: 1.3rem;
   margin: 0;
+  line-height: 2rem;
 }
 @media screen and (min-width: 768px) {
   .form .comments__content {
     font-size: 1.5rem;
+    line-height: 2.2rem;
   }
 }
 .form .comments__date {

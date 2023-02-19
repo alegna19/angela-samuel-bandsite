@@ -21,6 +21,11 @@ let defaultComments = [
   },
 ];
 
+/**
+ * Function to create the elements in the DOM.
+ * @param {Object} comment
+ */
+
 let displayComment = (comment) => {
   const articleComments = document.createElement("article");
   articleComments.classList.add("comments__info");
@@ -47,6 +52,10 @@ let displayComment = (comment) => {
   articleComments.appendChild(commentDefault);
 };
 
+/**
+ * Method to iterate the array of objects in order to display the comments by default.
+ */
+
 const showDefaults = () => {
   defaultComments.forEach((comment) => {
     displayComment(comment);
@@ -55,9 +64,26 @@ const showDefaults = () => {
 
 showDefaults();
 
-const showNewComments = () => {
-  const form = document.querySelector(".form");
+const form = document.querySelector(".form");
+const nameError = document.querySelector("#form__error");
 
+form.addEventListener("keydown", typing);
+
+/**
+ * Function that clean the form.
+ * @param {*} e
+ */
+function typing(e) {
+  if (e.target.name.value !== "") {
+    nameError.innerText = "";
+  }
+}
+
+/**
+ * Method to add the new comments and display it dinamically to the DOM.
+ */
+
+const showNewComments = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -68,8 +94,9 @@ const showNewComments = () => {
     };
 
     if (e.target.name.value === "" || e.target.name.value == null) {
-      const nameError = document.querySelector(".form__error");
-      nameError.innerText = "Please Enter a Name";
+      nameError.innerText = "!Please enter a name";
+    } else if (e.target.comment.value.length < 21) {
+      nameError.innerText = "Comment must have 20 or more characters...";
     } else {
       defaultComments.unshift(newComments);
       commentsList.innerHTML = "";
