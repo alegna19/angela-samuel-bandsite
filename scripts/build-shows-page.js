@@ -36,44 +36,32 @@ sectionShows.appendChild(containerShows);
 
 let showsDescription = document.querySelector(".shows__description");
 
-let showsInfo = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+let apiKey = "c71eaba9-4139-499f-86a3-551633b09e24";
+let apiUrl = `https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`;
+
+const showDates = (response) => {
+  const showsInfo = response.data;
+  showsInfo.forEach((item) => {
+    displayShows(item);
+  });
+};
+
+//Convert timestamp to format date dd/mm/yyyy.
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let day = date.getDay();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
+  console.log(formattedDate);
+  return formattedDate;
+}
 
 /**
  * Iterate the array of objects to display it in the Dom.
  */
 
-showsInfo.forEach((item) => {
+let displayShows = (shows) => {
   const article = document.createElement("article");
   article.classList.add("shows__article");
   showsDescription.appendChild(article);
@@ -86,7 +74,7 @@ showsInfo.forEach((item) => {
   const dateValue = document.createElement("p");
   dateValue.classList.add("shows__date");
   article.appendChild(dateValue);
-  dateValue.innerText = item.date;
+  dateValue.innerText = formatDate(shows.date);
 
   const venueTitle = document.createElement("h3");
   venueTitle.classList.add("shows__subtitle");
@@ -96,7 +84,7 @@ showsInfo.forEach((item) => {
   const venueValue = document.createElement("p");
   venueValue.classList.add("shows__details");
   article.appendChild(venueValue);
-  venueValue.innerText = item.venue;
+  venueValue.innerText = shows.place;
 
   const locationTitle = document.createElement("h3");
   locationTitle.classList.add("shows__subtitle");
@@ -106,13 +94,22 @@ showsInfo.forEach((item) => {
   const locationValue = document.createElement("p");
   locationValue.classList.add("shows__details");
   article.appendChild(locationValue);
-  locationValue.innerText = item.location;
+  locationValue.innerText = shows.location;
 
   const btnTickets = document.createElement("button");
   btnTickets.classList.add("shows__button");
   btnTickets.innerText = "BUY TICKETS";
   article.appendChild(btnTickets);
-});
+};
+
+// GET all shows dates.
+axios
+  .get(apiUrl)
+  .then(showDates)
+
+  .catch((error) => {
+    console.log(error);
+  });
 
 const articleElements = document.querySelectorAll(".shows__article");
 

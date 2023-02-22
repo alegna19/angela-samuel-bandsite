@@ -1,25 +1,86 @@
-const commentsList = document.querySelector(".comments");
+let apiKey = "c71eaba9-4139-499f-86a3-551633b09e24";
+let apiUrl = `https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`;
 
-let defaultComments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    commentText:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    commentText:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "iles Acosta",
-    date: "12/20/2020",
-    commentText:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+/**
+ * Method to iterate the array of objects in order to display the comments by default.
+ */
+const defaultData = [];
+
+const form = document.querySelector(".form");
+const nameError = document.querySelector("#form__error");
+
+form.addEventListener("keydown", typing);
+
+/**
+ * Function that clean the form.
+ * @param {*} e
+ */
+function typing(e) {
+  if (e.target.name.value !== "") {
+    nameError.innerText = "";
+  }
+}
+
+// GET all defaults Comments.
+const showDefaults = () => {
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      const defaultData = response.data;
+      defaultData.reverse().forEach((comment) => {
+        displayComment(comment);
+      });
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+/**
+ * Method to add the new comments and display it dinamically to the DOM.
+ */
+
+const showNewComments = (e) => {
+  e.preventDefault();
+
+  const newComments = {
+    name: e.target.name.value,
+    comment: e.target.comment.value,
+  };
+
+  if (e.target.name.value === "" || e.target.name.value == null) {
+    nameError.innerText = "!Please enter a name";
+  } else if (e.target.comment.value.length < 3) {
+    nameError.innerText = "Comment must have 20 or more characters...";
+  } else {
+    axios
+      .post(apiUrl, newComments)
+      .then(() => {
+        commentsList.innerHTML = "";
+        showDefaults();
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+};
+
+form.addEventListener("submit", showNewComments);
+
+//Convert timestamp to format date dd/mm/yyyy.
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let day = date.getDay();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  const formattedDate = `${day}/${month}/${year}`;
+  console.log(formattedDate);
+  return formattedDate;
+}
+
+const commentsList = document.querySelector(".comments");
 
 /**
  * Function to create the elements in the DOM.
@@ -43,67 +104,13 @@ let displayComment = (comment) => {
 
   const dateDefaultComment = document.createElement("p");
   dateDefaultComment.classList.add("comments__date");
-  dateDefaultComment.innerText = comment.date;
+  dateDefaultComment.innerText = formatDate(comment.timestamp);
   articleComments.appendChild(dateDefaultComment);
 
   const commentDefault = document.createElement("p");
   commentDefault.classList.add("comments__content");
-  commentDefault.innerText = comment.commentText;
+  commentDefault.innerText = comment.comment;
   articleComments.appendChild(commentDefault);
 };
 
-/**
- * Method to iterate the array of objects in order to display the comments by default.
- */
-
-const showDefaults = () => {
-  defaultComments.forEach((comment) => {
-    displayComment(comment);
-  });
-};
-
 showDefaults();
-
-const form = document.querySelector(".form");
-const nameError = document.querySelector("#form__error");
-
-form.addEventListener("keydown", typing);
-
-/**
- * Function that clean the form.
- * @param {*} e
- */
-function typing(e) {
-  if (e.target.name.value !== "") {
-    nameError.innerText = "";
-  }
-}
-
-/**
- * Method to add the new comments and display it dinamically to the DOM.
- */
-
-const showNewComments = () => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const newComments = {
-      name: e.target.name.value,
-      commentText: e.target.comment.value,
-      date: new Date().toLocaleDateString(),
-    };
-
-    if (e.target.name.value === "" || e.target.name.value == null) {
-      nameError.innerText = "!Please enter a name";
-    } else if (e.target.comment.value.length < 21) {
-      nameError.innerText = "Comment must have 20 or more characters...";
-    } else {
-      defaultComments.unshift(newComments);
-      commentsList.innerHTML = "";
-      showDefaults();
-      form.reset();
-    }
-  });
-};
-
-showNewComments();
