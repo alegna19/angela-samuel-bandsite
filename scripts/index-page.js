@@ -13,7 +13,7 @@ form.addEventListener("keydown", typing);
 
 /**
  * Function that clean the form.
- * @param {*} e
+ * @param {KeyboardEvent} e
  */
 function typing(e) {
   if (e.target.name.value !== "") {
@@ -21,7 +21,9 @@ function typing(e) {
   }
 }
 
-// GET all defaults Comments.
+/**
+ * GET all defaults Comments.
+ */
 const showDefaults = () => {
   axios
     .get(apiUrl)
@@ -38,9 +40,9 @@ const showDefaults = () => {
 };
 
 /**
- * Method to add the new comments and display it dinamically to the DOM.
+ * Add the new comments and display it dynamically to the DOM.
+ * @param {SubmitEvent} e
  */
-
 const showNewComments = (e) => {
   e.preventDefault();
 
@@ -69,17 +71,6 @@ const showNewComments = (e) => {
 
 form.addEventListener("submit", showNewComments);
 
-//Convert timestamp to format date dd/mm/yyyy.
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let day = date.getDay();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  const formattedDate = `${day}/${month}/${year}`;
-  console.log(formattedDate);
-  return formattedDate;
-}
-
 const commentsList = document.querySelector(".comments");
 
 /**
@@ -104,7 +95,9 @@ let displayComment = (comment) => {
 
   const dateDefaultComment = document.createElement("p");
   dateDefaultComment.classList.add("comments__date");
-  dateDefaultComment.innerText = formatDate(comment.timestamp);
+  dateDefaultComment.innerText = new Date(
+    comment.timestamp
+  ).toLocaleDateString();
   articleComments.appendChild(dateDefaultComment);
 
   const commentDefault = document.createElement("p");

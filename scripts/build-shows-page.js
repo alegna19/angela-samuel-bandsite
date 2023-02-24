@@ -46,17 +46,6 @@ const showDates = (response) => {
   });
 };
 
-//Convert timestamp to format date dd/mm/yyyy.
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let day = date.getDay();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  const formattedDate = `${day}/${month}/${year}`;
-  console.log(formattedDate);
-  return formattedDate;
-}
-
 /**
  * Iterate the array of objects to display it in the Dom.
  */
@@ -74,7 +63,7 @@ let displayShows = (shows) => {
   const dateValue = document.createElement("p");
   dateValue.classList.add("shows__date");
   article.appendChild(dateValue);
-  dateValue.innerText = formatDate(shows.date);
+  dateValue.innerText = new Date(shows.date).toLocaleDateString();
 
   const venueTitle = document.createElement("h3");
   venueTitle.classList.add("shows__subtitle");

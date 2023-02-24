@@ -342,6 +342,7 @@
       flex-wrap: wrap;
       border-top: 1px solid $bran-color-mercury;
       padding: 1.6rem 0;
+      width: 100%;
 
       &:last-child {
         border-bottom: 1px solid $bran-color-mercury;
@@ -370,6 +371,7 @@
       font-size: 1.3rem;
       margin: 0;
       line-height: 2rem;
+      width: 100%;
 
       @include tablet {
         font-size: 1.5rem;
