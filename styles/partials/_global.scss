@@ -132,7 +132,13 @@
   @include flex(left, column, null);
   padding: 1rem 0;
 
-  @include tablet {
+  &__container {
+    @include tablet {
+      @include flex(space-between, null, null);
+      align-items: baseline;
+      //width: 89%;
+      margin-top: 5rem;
+    }
   }
 
   &__title {
@@ -142,8 +148,7 @@
 
     @include tablet {
       @include flex(left, row, null);
-      width: 30%;
-      margin: -4rem 0 0;
+      margin: 0;
       font-size: 3.4rem;
     }
   }
@@ -151,12 +156,11 @@
   &__social {
     @include tablet {
       @include flex(center, row, null);
-      width: 92%;
-      margin-top: -2.9rem;
+      margin-left: 5.4rem;
     }
 
     @include desktop {
-      width: 57%;
+      margin-left: 7.4rem;
     }
   }
 
@@ -177,8 +181,8 @@
     @include tablet {
       display: flex;
       justify-content: flex-end;
-      order: -1;
-      margin-top: 5rem;
+      order: 1;
+      margin-left: auto;
     }
   }
 

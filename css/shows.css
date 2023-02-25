@@ -169,6 +169,14 @@ a {
   flex-direction: column;
   padding: 1rem 0;
 }
+@media screen and (min-width: 768px) {
+  .contact__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 5rem;
+  }
+}
 .contact__title {
   font-size: 2rem;
   font-weight: 600;
@@ -179,8 +187,7 @@ a {
     display: flex;
     justify-content: left;
     flex-direction: row;
-    width: 30%;
-    margin: -4rem 0 0;
+    margin: 0;
     font-size: 3.4rem;
   }
 }
@@ -189,13 +196,12 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width: 92%;
-    margin-top: -2.9rem;
+    margin-left: 5.4rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .contact__social {
-    width: 57%;
+    margin-left: 7.4rem;
   }
 }
 .contact__img:first-child {
@@ -212,8 +218,8 @@ a {
   .contact__logo {
     display: flex;
     justify-content: flex-end;
-    order: -1;
-    margin-top: 5rem;
+    order: 1;
+    margin-left: auto;
   }
 }
 .contact__copyright {
