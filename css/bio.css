@@ -730,7 +730,7 @@ a {
 @media screen and (min-width: 1280px) {
   .form .comments__info {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
     margin: 0 33rem;
   }
@@ -767,4 +767,27 @@ a {
 }
 .form .comments__image {
   width: 4.5rem;
+}
+.form .comments__delete-btn {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: #323232;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .form .comments__delete-btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 10%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .form .comments__delete-btn {
+    width: 6%;
+  }
 }/*# sourceMappingURL=bio.css.map */

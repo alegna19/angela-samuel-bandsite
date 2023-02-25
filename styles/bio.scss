@@ -363,7 +363,7 @@
       }
 
       @include desktop {
-        @include flex(center, row, null);
+        @include flex(flex-start, row, null);
         margin: 0 33rem;
       }
     }
@@ -401,6 +401,25 @@
 
     &__image {
       width: 4.5rem;
+    }
+
+    &__delete-btn {
+      @include flex(flex-start, row, null);
+      background-color: $brand-primary;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+
+      @include tablet {
+        @include flex(center, row, null);
+        width: 10%;
+      }
+
+      @include tablet {
+        //@include flex(center, row, null);
+        width: 6%;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-let apiKey = "c71eaba9-4139-499f-86a3-551633b09e24";
+let apiKey = "a44200a7-22d3-4317-8291-e3ce51ba7897";
 let apiUrl = `https://project-1-api.herokuapp.com/comments?api_key=${apiKey}`;
 
 /**
@@ -33,7 +33,6 @@ const showDefaults = () => {
         displayComment(comment);
       });
     })
-
     .catch((error) => {
       console.log(error);
     });
@@ -53,7 +52,7 @@ const showNewComments = (e) => {
 
   if (e.target.name.value === "" || e.target.name.value == null) {
     nameError.innerText = "!Please enter a name";
-  } else if (e.target.comment.value.length < 20) {
+  } else if (e.target.comment.value.length < 2) {
     nameError.innerText = "Comment must have 20 or more characters...";
   } else {
     axios
@@ -70,6 +69,17 @@ const showNewComments = (e) => {
 };
 
 form.addEventListener("submit", showNewComments);
+
+/**
+ * Delete a comment.
+ * @param {String} id
+ */
+const deleteComment = (id) => {
+  const url = `https://project-1-api.herokuapp.com/comments/${id}?api_key=${apiKey}`;
+  axios.delete(url).catch((error) => {
+    console.log(error);
+  });
+};
 
 const commentsList = document.querySelector(".comments");
 
@@ -104,6 +114,16 @@ let displayComment = (comment) => {
   commentDefault.classList.add("comments__content");
   commentDefault.innerText = comment.comment;
   articleComments.appendChild(commentDefault);
+
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "Delete";
+  deleteButton.classList.add("comments__delete-btn");
+  articleComments.appendChild(deleteButton);
+
+  deleteButton.addEventListener("click", () => {
+    deleteComment(comment.id);
+    articleComments.remove();
+  });
 };
 
 showDefaults();
