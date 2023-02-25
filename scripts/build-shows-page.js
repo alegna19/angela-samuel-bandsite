@@ -36,18 +36,30 @@ sectionShows.appendChild(containerShows);
 
 let showsDescription = document.querySelector(".shows__description");
 
-let apiKey = "c71eaba9-4139-499f-86a3-551633b09e24";
+let apiKey = "a44200a7-22d3-4317-8291-e3ce51ba7897";
 let apiUrl = `https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`;
+
+/**
+ * GET all shows dates.
+ */
+const showsDates = () => {
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      const showsInfo = response.data;
+      showsInfo.forEach((item) => {
+        displayShows(item);
+      });
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 /**
  * Iterate the array of objects to display it in the Dom.
  */
-const showDates = (response) => {
-  const showsInfo = response.data;
-  showsInfo.forEach((item) => {
-    displayShows(item);
-  });
-};
 
 let displayShows = (shows) => {
   const article = document.createElement("article");
@@ -88,31 +100,22 @@ let displayShows = (shows) => {
   btnTickets.classList.add("shows__button");
   btnTickets.innerText = "BUY TICKETS";
   article.appendChild(btnTickets);
+
+  const articleElements = document.querySelectorAll(".shows__article");
+
+  /**
+   * Recive an event to validate if the row of the article is active.
+   */
+  articleElements.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const activeValue = document.querySelector(".shows__article--active");
+
+      if (activeValue) {
+        activeValue.classList.remove("shows__article--active");
+      }
+      e.currentTarget.classList.toggle("shows__article--active");
+    });
+  });
 };
 
-/**
- * GET all shows dates.
- */
-axios
-  .get(apiUrl)
-  .then(showDates)
-
-  .catch((error) => {
-    console.log(error);
-  });
-
-const articleElements = document.querySelectorAll(".shows__article");
-
-/**
- * Method that recive an event to validate if the row of the article is active.
- */
-articleElements.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    const activeValue = document.querySelector(".shows__article--active");
-
-    if (activeValue) {
-      activeValue.classList.remove("shows__article--active");
-    }
-    e.currentTarget.classList.toggle("shows__article--active");
-  });
-});
+showsDates();

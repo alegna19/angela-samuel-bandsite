@@ -562,14 +562,6 @@ a {
     background-color: #fafafa;
   }
 }
-.shows__article--active {
-  background-color: #e1e1e1;
-  font-weight: bold;
-  color: #323232;
-}
-.shows__article--active:hover {
-  background-color: #e1e1e1;
-}
 .shows__subtitle {
   font-weight: 600;
   font-size: 1.2rem;
@@ -614,4 +606,12 @@ a {
   .shows__date {
     width: 33%;
   }
+}
+.shows__article--active {
+  background-color: #e1e1e1;
+  font-weight: bold;
+  color: #323232;
+}
+.shows__article--active:hover {
+  background-color: #e1e1e1;
 }/*# sourceMappingURL=shows.css.map */
