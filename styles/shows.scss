@@ -202,6 +202,16 @@
     }
   }
 
+  &__article--active {
+    background-color: $bran-color-mercury;
+    font-weight: bold;
+    color: $brand-primary;
+
+    &:hover {
+      background-color: $bran-color-mercury;
+    }
+  }
+
   &__subtitle {
     font-weight: 600;
     font-size: 1.2rem;
@@ -242,16 +252,6 @@
 
     @include desktop {
       width: 33%;
-    }
-  }
-
-  &__article--active {
-    background-color: $bran-color-mercury;
-    font-weight: bold;
-    color: $brand-primary;
-
-    &:hover {
-      background-color: $bran-color-mercury;
     }
   }
 }

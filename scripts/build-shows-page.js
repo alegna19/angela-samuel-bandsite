@@ -39,16 +39,15 @@ let showsDescription = document.querySelector(".shows__description");
 let apiKey = "c71eaba9-4139-499f-86a3-551633b09e24";
 let apiUrl = `https://project-1-api.herokuapp.com/showdates?api_key=${apiKey}`;
 
+/**
+ * Iterate the array of objects to display it in the Dom.
+ */
 const showDates = (response) => {
   const showsInfo = response.data;
   showsInfo.forEach((item) => {
     displayShows(item);
   });
 };
-
-/**
- * Iterate the array of objects to display it in the Dom.
- */
 
 let displayShows = (shows) => {
   const article = document.createElement("article");
@@ -63,7 +62,7 @@ let displayShows = (shows) => {
   const dateValue = document.createElement("p");
   dateValue.classList.add("shows__date");
   article.appendChild(dateValue);
-  dateValue.innerText = new Date(shows.date).toLocaleDateString();
+  dateValue.innerText = new Date(shows.date).toDateString();
 
   const venueTitle = document.createElement("h3");
   venueTitle.classList.add("shows__subtitle");
@@ -91,7 +90,9 @@ let displayShows = (shows) => {
   article.appendChild(btnTickets);
 };
 
-// GET all shows dates.
+/**
+ * GET all shows dates.
+ */
 axios
   .get(apiUrl)
   .then(showDates)
