@@ -73,7 +73,7 @@
     cursor: pointer;
     font-size: 1.5rem;
 
-    &--active {
+    &.nav__item--active {
       &::after {
         height: 0.3rem;
       }
@@ -103,9 +103,7 @@
     }
 
     &:hover {
-      .nav__list__item__link {
-        color: white;
-      }
+      color: white;
 
       &::after {
         height: 0.3rem;
@@ -136,8 +134,7 @@
     @include tablet {
       @include flex(space-between, null, null);
       align-items: baseline;
-      //width: 89%;
-      margin-top: 5rem;
+      margin-top: 1rem;
     }
   }
 

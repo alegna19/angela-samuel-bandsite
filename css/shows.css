@@ -117,7 +117,7 @@ a {
   cursor: pointer;
   font-size: 1.5rem;
 }
-.nav__item--active::after {
+.nav__item.nav__item--active::after {
   height: 0.3rem;
 }
 @media screen and (min-width: 768px) {
@@ -144,7 +144,7 @@ a {
   text-decoration: none;
   color: #afafaf;
 }
-.nav__item:hover .nav__list__item__link {
+.nav__item:hover {
   color: white;
 }
 .nav__item:hover::after {
@@ -174,7 +174,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
 }
 .contact__title {
