@@ -321,6 +321,8 @@ a {
   width: 82%;
   height: 4rem;
   display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 @media screen and (min-width: 768px) {
   .form__button {
@@ -584,24 +586,36 @@ a {
     padding-left: 1rem;
   }
 }
+.form__error-comment {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  height: 0;
+  padding-left: 5rem;
+  padding-bottom: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .form__error-comment {
+    padding-left: 13rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form__error-comment {
+    padding-left: 39rem;
+  }
+}
 .form__error {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: tomato;
-  width: 10rem;
-  height: 4rem;
+  height: 1rem;
+  margin: 0;
 }
 @media screen and (min-width: 768px) {
   .form__error {
     font-weight: 700;
-    width: 20rem;
+    width: 44rem;
     font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .form__error {
-    padding-left: 15rem;
-    width: 38rem;
   }
 }
 .form__info {

@@ -233,22 +233,32 @@
     }
   }
 
-  &__error {
-    font-size: 1rem;
-    font-weight: 600;
-    color: tomato;
-    width: 10rem;
-    height: 4rem;
+  &__error-comment {
+    @include flex(flex-start, row, null);
+    height: 0;
+    padding-left: 5rem;
+    padding-bottom: 1.5rem;
 
     @include tablet {
-      font-weight: 700;
-      width: 20rem;
-      font-size: 1.5rem;
+      padding-left: 13rem;
     }
 
     @include desktop {
-      padding-left: 15rem;
-      width: 38rem;
+      padding-left: 39rem;
+    }
+  }
+
+  &__error {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: tomato;
+    height: 1rem;
+    margin: 0;
+
+    @include tablet {
+      font-weight: 700;
+      width: 44rem;
+      font-size: 1.5rem;
     }
   }
 

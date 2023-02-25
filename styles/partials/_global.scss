@@ -292,6 +292,8 @@
   width: 82%;
   height: 4rem;
   display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   @include tablet {
     align-items: flex-end;

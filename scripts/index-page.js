@@ -53,7 +53,7 @@ const showNewComments = (e) => {
 
   if (e.target.name.value === "" || e.target.name.value == null) {
     nameError.innerText = "!Please enter a name";
-  } else if (e.target.comment.value.length < 3) {
+  } else if (e.target.comment.value.length < 20) {
     nameError.innerText = "Comment must have 20 or more characters...";
   } else {
     axios
