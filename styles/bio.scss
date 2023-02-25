@@ -296,6 +296,10 @@
     margin: 1rem 0;
     font-family: Avenir;
 
+    &:focus {
+      outline: none;
+    }
+
     @include tablet {
       width: 50rem;
       height: 4rem;
